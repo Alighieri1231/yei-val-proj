@@ -37,7 +37,7 @@ function handleYesClick() {
     const downloadBtn = document.createElement("a");
     downloadBtn.href = "candle.pdf"; // debe estar en la raíz del proyecto
     downloadBtn.download = "candle.pdf";
-    downloadBtn.textContent = "Download your Candle PDF 🕯️";
+    downloadBtn.textContent = "Descargalou 🕯️";
     downloadBtn.classList.add("btn", "download-pdf");
     downloadBtn.style.backgroundColor = "#845ef7";
     downloadBtn.style.marginTop = "2rem";

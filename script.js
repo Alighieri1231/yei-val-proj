@@ -61,3 +61,23 @@ function changeImage(image) {
 function updateNoButtonText() {
   noButton.innerHTML = generateMessage(noCount);
 }
+
+const yesBtn = document.querySelector(".btn--yes");
+const noBtn = document.querySelector(".btn--no");
+const title = document.querySelector(".title");
+const container = document.querySelector(".container");
+
+yesBtn.addEventListener("click", () => {
+  title.textContent = "Yayyyy ❤️ Here is your surprise!";
+
+  // Crear botón de descarga
+  const downloadBtn = document.createElement("a");
+  downloadBtn.href = "candle.pdf"; // archivo en la raíz
+  downloadBtn.download = "candle.pdf";
+  downloadBtn.textContent = "Download your Candle PDF 🕯️";
+  downloadBtn.classList.add("btn");
+  downloadBtn.style.backgroundColor = "#845ef7";
+  downloadBtn.style.marginTop = "2rem";
+
+  container.appendChild(downloadBtn);
+});

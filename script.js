@@ -5,6 +5,7 @@ const buttonsContainer = document.querySelector(".buttons");
 const yesButton = document.querySelector(".btn--yes");
 const noButton = document.querySelector(".btn--no");
 const catImg = document.querySelector(".cat-img");
+const container = document.querySelector(".container");
 
 const MAX_IMAGES = 5;
 
@@ -27,9 +28,23 @@ noButton.addEventListener("click", function () {
 });
 
 function handleYesClick() {
-  titleElement.innerHTML = "Yayyy!! :3";
+  titleElement.innerHTML = "Siuu!! :3 ❤️ Espero te guste la sorpresa!";
   buttonsContainer.classList.add("hidden");
   changeImage("yes");
+
+  // Evita crear el botón más de una vez si hacen click muchas veces
+  if (!document.querySelector(".download-pdf")) {
+    const downloadBtn = document.createElement("a");
+    downloadBtn.href = "candle.pdf"; // debe estar en la raíz del proyecto
+    downloadBtn.download = "candle.pdf";
+    downloadBtn.textContent = "Download your Candle PDF 🕯️";
+    downloadBtn.classList.add("btn", "download-pdf");
+    downloadBtn.style.backgroundColor = "#845ef7";
+    downloadBtn.style.marginTop = "2rem";
+    downloadBtn.style.textDecoration = "none";
+
+    container.appendChild(downloadBtn);
+  }
 }
 
 function resizeYesButton() {
@@ -43,11 +58,11 @@ function resizeYesButton() {
 function generateMessage(noCount) {
   const messages = [
     "No",
-    "Are you sure?",
-    "Pookie please",
-    "Don't do this to me :(",
-    "You're breaking my heart",
-    "I'm gonna cry...",
+    "eStAs Segura?",
+    "Porfa Mona",
+    "No me hagas esto:(",
+    "Me rompes el corazón :(",
+    "Quieres k iore o k",
   ];
 
   const messageIndex = Math.min(noCount, messages.length - 1);
@@ -61,23 +76,3 @@ function changeImage(image) {
 function updateNoButtonText() {
   noButton.innerHTML = generateMessage(noCount);
 }
-
-const yesBtn = document.querySelector(".btn--yes");
-const noBtn = document.querySelector(".btn--no");
-const title = document.querySelector(".title");
-const container = document.querySelector(".container");
-
-yesBtn.addEventListener("click", () => {
-  title.textContent = "Yayyyy ❤️ Here is your surprise!";
-
-  // Crear botón de descarga
-  const downloadBtn = document.createElement("a");
-  downloadBtn.href = "candle.pdf"; // archivo en la raíz
-  downloadBtn.download = "candle.pdf";
-  downloadBtn.textContent = "Download your Candle PDF 🕯️";
-  downloadBtn.classList.add("btn");
-  downloadBtn.style.backgroundColor = "#845ef7";
-  downloadBtn.style.marginTop = "2rem";
-
-  container.appendChild(downloadBtn);
-});
